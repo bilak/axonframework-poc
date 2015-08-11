@@ -1,5 +1,7 @@
 package com.github.bilak.axonframework.poc.command.user;
 
+import com.github.bilak.axonframework.poc.domain.user.ChangeEmailCommand;
+import com.github.bilak.axonframework.poc.domain.user.EmailChangedEvent;
 import com.github.bilak.axonframework.poc.domain.user.UserId;
 import com.github.bilak.axonframework.poc.domain.user.UserRegisteredEvent;
 import org.axonframework.eventsourcing.annotation.AbstractAnnotatedAggregateRoot;
@@ -25,12 +27,24 @@ public class User extends AbstractAnnotatedAggregateRoot<UserId>{
         apply(new UserRegisteredEvent(userId, userName, userEmail));
     }
 
+
+    public void changeEmail(String email){
+        // todo validate email
+        apply(new EmailChangedEvent(this.userId, email));
+    }
+
     @EventSourcingHandler
     @SuppressWarnings("unused")
     private void onUserRegistered(UserRegisteredEvent event){
         this.userId = event.getUserId();
         this.userName = event.getUserName();
         this.userEmail = event.getUserEmail();
+    }
+
+    @EventSourcingHandler
+    @SuppressWarnings("unused")
+    private void onEmailChanged(EmailChangedEvent event){
+        this.userEmail = event.getEmail();
     }
 
     public UserId getUserId() {

@@ -11,6 +11,7 @@
         <module>core-api</module>
         <module>infrastructure</module>
         <module>command</module>
+        <module>web</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -28,8 +29,6 @@
     </properties>
 
 
-
-
     <build>
         <plugins>
             <plugin>
@@ -41,7 +40,7 @@
                     <jvmArguments>
                         -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
                     </jvmArguments>
-                    <mainClass>com.github.bilak.axonframework.Application</mainClass>
+                    <mainClass>com.github.bilak.axonframework.poc.Application</mainClass>
                 </configuration>
             </plugin>
         </plugins>

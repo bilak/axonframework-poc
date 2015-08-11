@@ -9,6 +9,8 @@ import java.io.Serializable;
  */
 public abstract class AbstractUserCommand implements Serializable{
 
+    private static final long serialVersionUID = -3042860166783390252L;
+
     @TargetAggregateIdentifier
     protected UserId userId;
 

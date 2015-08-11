@@ -3,9 +3,10 @@ package com.github.bilak.axonframework.poc.domain.user;
 /**
  * Created by lvasek on 06/08/15.
  */
-public class UserRegisteredEvent {
+public class UserRegisteredEvent extends AbstractUserEvent{
 
-    private UserId userId;
+    private static final long serialVersionUID = 3294350994544955573L;
+
     private String userName;
     private String userEmail;
 

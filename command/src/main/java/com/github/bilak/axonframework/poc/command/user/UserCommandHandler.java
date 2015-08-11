@@ -1,5 +1,6 @@
 package com.github.bilak.axonframework.poc.command.user;
 
+import com.github.bilak.axonframework.poc.domain.user.ChangeEmailCommand;
 import com.github.bilak.axonframework.poc.domain.user.RegisterUserCommand;
 import org.axonframework.commandhandling.annotation.CommandHandler;
 import org.axonframework.repository.Repository;
@@ -17,15 +18,21 @@ public class UserCommandHandler {
 
     @CommandHandler
     @SuppressWarnings("unused")
-    private void handleRegisterUser(RegisterUserCommand command){
-        User user= new User(command.getUserId(), command.getUserName(), command.getUserEmail());
+    private void handleRegisterUser(RegisterUserCommand command) {
+        User user = new User(command.getUserId(), command.getUserName(), command.getUserEmail());
         userRepository.add(user);
+    }
+
+    @CommandHandler
+    private void handleChangeEmail(ChangeEmailCommand command) {
+        User user = userRepository.load(command.getUserId());
+        user.changeEmail(command.getEmail());
     }
 
 
     @Autowired
     @Qualifier("userEventSourcingRepository")
-    public void setUserRepository(Repository<User> userRepository){
+    public void setUserRepository(Repository<User> userRepository) {
         this.userRepository = userRepository;
     }
 }

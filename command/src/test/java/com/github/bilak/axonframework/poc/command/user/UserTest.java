@@ -9,7 +9,6 @@ import org.axonframework.test.Fixtures;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -22,13 +21,13 @@ public class UserTest {
 
     private FixtureConfiguration fixture;
 
-    @Autowired
-    private UserCommandHandler userCommandHandler;
-
     @Before
-    public void setup() {
+    public void setup() throws Exception {
         fixture = Fixtures.newGivenWhenThenFixture(User.class);
-        fixture.registerAnnotatedCommandHandler(userCommandHandler);
+        //UserCommandHandler target = (UserCommandHandler) ((Advised) userCommandHandler).getTargetSource().getTarget();
+        UserCommandHandler target = new UserCommandHandler();
+        target.setUserRepository(fixture.getRepository());
+        fixture.registerAnnotatedCommandHandler(target);
     }
 
     @Test
