@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
  */
 @SpringBootApplication
 @EnableAutoConfiguration
-@PropertySource(value = { "application.properties","classpath:infrastructure.properties" }, ignoreResourceNotFound = true)
+@PropertySource(value = { "classpath:application.properties","classpath:infrastructure.properties" })
 public class Application {
 
     public static void main(String[] args) {
