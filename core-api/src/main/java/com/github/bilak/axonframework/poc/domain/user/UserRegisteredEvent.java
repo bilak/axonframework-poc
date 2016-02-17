@@ -1,9 +1,11 @@
 package com.github.bilak.axonframework.poc.domain.user;
 
+import java.io.Serializable;
+
 /**
  * Created by lvasek on 06/08/15.
  */
-public class UserRegisteredEvent extends AbstractUserEvent{
+public class UserRegisteredEvent extends AbstractUserEvent implements Serializable{
 
     private static final long serialVersionUID = 3294350994544955573L;
 

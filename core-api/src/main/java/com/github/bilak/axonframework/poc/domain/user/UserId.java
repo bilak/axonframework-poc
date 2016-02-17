@@ -44,8 +44,6 @@ public class UserId implements Serializable {
 
     @Override
     public String toString() {
-        return "UserId{" +
-                "identifier='" + identifier + '\'' +
-                '}';
+        return identifier;
     }
 }
