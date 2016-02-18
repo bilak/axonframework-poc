@@ -23,12 +23,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>${spring-boot.version}</version>
+            <!--
             <exclusions>
                 <exclusion>
                     <artifactId>hibernate-entitymanager</artifactId>
                     <groupId>org.hibernate</groupId>
                 </exclusion>
             </exclusions>
+            -->
+
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -37,12 +40,13 @@
         </dependency>
 
 
-        <!-- persistence -->
+        <!-- persistence
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
             <version>${eclipselink.version}</version>
         </dependency>
+         -->
 
         <!-- axon -->
         <dependency>

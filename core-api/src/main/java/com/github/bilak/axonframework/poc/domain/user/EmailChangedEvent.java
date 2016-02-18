@@ -5,6 +5,9 @@ package com.github.bilak.axonframework.poc.domain.user;
  */
 public class EmailChangedEvent extends AbstractUserEvent {
 
+
+    private static final long serialVersionUID = 803398049924865749L;
+
     private String email;
 
     public EmailChangedEvent(UserId userId, String email) {

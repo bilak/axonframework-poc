@@ -17,7 +17,6 @@ public class UserCommandHandler {
     private Repository<User> userRepository;
 
     @CommandHandler
-    @SuppressWarnings("unused")
     private void handleRegisterUser(RegisterUserCommand command) {
         User user = new User(command.getUserId(), command.getUserName(), command.getUserEmail());
         userRepository.add(user);
