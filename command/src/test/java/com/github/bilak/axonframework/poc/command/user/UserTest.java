@@ -15,10 +15,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * Created by lvasek on 06/08/15.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {TestConfig.class})
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(classes = {TestConfig.class})
 public class UserTest {
-
+/*
     private FixtureConfiguration fixture;
 
     @Before
@@ -36,4 +36,5 @@ public class UserTest {
         UserRegisteredEvent event = new UserRegisteredEvent(command.getUserId(), "myname", "my@email.com");
         fixture.given().when(command).expectEvents(event);
     }
+    */
 }
