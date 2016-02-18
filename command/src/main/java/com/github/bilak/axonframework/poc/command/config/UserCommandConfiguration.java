@@ -35,7 +35,7 @@ import java.sql.SQLException;
  */
 @Configuration
 @ComponentScan(basePackageClasses = {User.class})
-public class CommandConfiguration {
+public class UserCommandConfiguration {
 
 
     @Autowired
